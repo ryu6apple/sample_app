@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     # debugger
     @user = User.create(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "account created! welcome to the sample app"
       redirect_to user_url(@user)
     else
